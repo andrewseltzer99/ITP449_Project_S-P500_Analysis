@@ -4,7 +4,7 @@ The dataset I used is SPY.csv which can be found within my repository. This data
 
 Before In[1]:
 
-This project seeks to analyze the S&P500 ($SPY) in several different mannerisms. First off, we tend to see Q4 earnings be the highest of all quarters for a considerable amount of companies. If one were to purchase the S&P500 every year before the holiday season on November 1st, and proceeded to sell during Q4 earnings reports in mid February, could one expect to consistently generate a profit? How much profit/loss could one expect on average to generate through executing this strategy? As well, how could one expect to compare that strategy as opposed to just buying and holding the S&P500?
+This project seeks to analyze the S&P500 ($SPY) in several different mannerisms. First off, we tend to see Q4 earnings be the highest of all quarters for a considerable amount of companies due to excessive spending during the holiday season. If one were to purchase the S&P500 every year before the holiday season on November 1st, and proceeded to sell during Q4 earnings reports in mid February, could one expect to consistently generate a profit? How much profit/loss could one expect on average to generate through executing this strategy? As well, how could one expect to compare that strategy as opposed to just buying and holding the S&P500?
 
 This project will also use several analytical and forecasting tools to analyze the correlation between market volatility and volume, as well to see if any commonly used forecasting models could accurately predict the price of the S&P500.
 
@@ -21,7 +21,7 @@ Here is a visualization of the price comparisons of the pre-Holiday prices vs th
 
 After In[7]:
 
-Here is a grouped bar chart displaying the price comparisons for each year as well, but this one allows one to spot a particular trend easier. This trend is that we tend to see pre-holiday prices be higher at the peak of the market prior to a crash (as one would expect), as well as at the lowest points of each particular crash. These peaks being 2000, 2008, and 2016. The low points are 2003 and 2009.
+Here is a grouped bar chart displaying the price comparisons for each year as well, but this one allows one to spot a particular trend easier. This trend is that we tend to see pre-holiday prices be higher at the peak of the market prior to a crash (as one would expect), as well as at the lowest points of each particular crash. These peaks being 2000, 2008, and 2016. The low points being 2003 and 2009.
 
 After In[23]:
 
@@ -33,7 +33,7 @@ Here is a graph displaying the percent increase or decrease in the S&P500 from e
 
 After In[28]:
 
-Now that we’ve looked at price comparisons, we will now go into some other analysis through using different analytical tools and predictive models. Here we see the autocorrelation of the S&P500 closing price and volume. In the stock market, lower volume means the stock is more illiquid, which results in greater volatility. This is represented in these two graphs above. Autocorrelation hovers just slightly below 0 from lag=2000 to lag=4000 in the closing price graph. In that same interval, we see a negative correlation of volume. The lack of correlation in the first graph indicates that there was high volatility in the market, which matches the lower volume being traded at that same interval.
+Now that we’ve looked at price comparisons, we will now go into some other analysis through using different analytical tools and predictive models. Here we see the autocorrelation of the S&P500 closing price and volume. In the stock market, lower volume indicates the stock is more illiquid, which results in greater volatility. This is represented in these two graphs above. Autocorrelation hovers just slightly below 0 from lag=2000 to lag=4000 in the closing price graph. In that same interval, we see a negative autocorrelation of volume. The lack of correlation in the first graph indicates that there was high volatility in the market, which matches the lower volume being traded at that same interval.
 
 After In[29]:
 
@@ -48,7 +48,7 @@ After In[30]:
 Here we do an out-sample prediction with the prophet model. We once again see how the prophet model seeks the trend, avoiding volatility. This is evident by the drop off from when the in-sample data ends and the out-sample prediction begins. The model is analyzing the trend, rather than volatility, which could be beneficial for long term traders and less valuable for short-term traders. 
 
 After In[24]:
-Here we ran the ARIMA model with a (5,1,0) model on the closing price for all the closing prices from the beginning of November in 1993 until late February 2021. As we’d expect, we see the residuals being larger in times of market volatility. However, our lag choice of 5 actually helps our model adjust to this volatility slightly, as opposed to simply following the basic trend. We see the standard deviation is 1.868, meaning that 99.7% of the real closing values fall within +/- 5.604 of our ARIMA model’s prediction, meaning this ARIMA model fits the overall dataset relatively well. We see that times of volatility have the largest residuals, as one would expect. 
+Here we ran the ARIMA model with a (5,1,0) model on the closing price for all the closing prices from the beginning of November in 1993 until late February 2021. As we’d expect, we see the residuals being larger in times of market volatility. However, our lag choice of 5 actually helps our model adjust to this volatility slightly, as opposed to simply following the overall trend. We see the standard deviation is 1.868, meaning that 99.7% of the real closing values fall within +/- 5.604 of our ARIMA model’s prediction, meaning this ARIMA model fits the overall dataset relatively well. We see that times of volatility have the largest residuals, as one would expect. 
 
 Conclusion:
 
